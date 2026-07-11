@@ -1,0 +1,52 @@
+name: Update profile contributions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-contribution-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install runtime dependencies
+        run: python -m pip install -r scripts/requirements.txt
+
+      - name: Fetch public contribution data
+        run: GH_PROFILE_USER=deserveto python scripts/fetch_contributions.py
+
+      - name: Render contribution graph
+        run: python scripts/render_heatmap_svg.py
+
+      - name: Commit changed contribution assets
+        shell: bash
+        run: |
+          if git diff --quiet -- data/contributions.json contrib-heatmap.svg; then
+            echo "No contribution changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/contributions.json contrib-heatmap.svg
+          git commit -m "chore: refresh contribution graph"
+          git push
