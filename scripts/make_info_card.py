@@ -3,6 +3,10 @@
 from __future__ import annotations
 import html, os
 from pathlib import Path
+if __package__ in (None, ""):
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from scripts.profile_config import INFO_CARD_ROWS, PROFILE_HOST
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = ROOT / "info-card.svg"

@@ -4,6 +4,10 @@ from __future__ import annotations
 import html, os, sys
 from pathlib import Path
 from PIL import Image, ImageEnhance, ImageOps
+if __package__ in (None, ""):
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from scripts.profile_config import PROFILE_HOST, PROFILE_NAME
 RAMP = " .`:-=+*cs#%@"
 DEFAULT_COLUMNS, DEFAULT_ROWS = 80, 42

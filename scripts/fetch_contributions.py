@@ -13,6 +13,10 @@ from typing import Any
 import requests
 from bs4 import BeautifulSoup
 
+if __package__ in (None, ""):
+    import sys as _sys
+    _sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 from scripts.profile_config import PROFILE_HOST
 
 ROOT = Path(__file__).resolve().parent.parent
