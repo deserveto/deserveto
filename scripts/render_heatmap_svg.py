@@ -111,7 +111,11 @@ def render(data: dict[str, Any]) -> str:
     sep=leg_y+CELL+14; p.append(f'<line x1="0" y1="{sep}" x2="{width}" y2="{sep}" stroke="{FRAME}"/>')
     total=int(data["total_contributions"]); cs=int(data["current_streak"]["length"]); ls=int(data["longest_streak"]["length"]); best=data["best_day"]; rng=data["range"]
     y=sep+24
-    p.append(f'<text x="{PAD}" y="{y}" font-size="13" fill="{TEXT}"><tspan font-weight="700">{total:,}</tspan><tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
+    bootstrap_note = data.get("bootstrap_note")
+    if bootstrap_note:
+        p.append(f'<text x="{PAD}" y="{y}" font-size="11" fill="{MUTED}">{html.escape(str(bootstrap_note))}</text>')
+    else:
+        p.append(f'<text x="{PAD}" y="{y}" font-size="13" fill="{TEXT}"><tspan font-weight="700">{total:,}</tspan><tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
     p.append(f'<text x="{width-PAD}" y="{y}" font-size="12" fill="{MUTED}" text-anchor="end">{rng["start"]} &#8594; {rng["end"]}</text>')
     y += 24
     p.append(f'<text x="{PAD}" y="{y}" font-size="13" fill="{MUTED}">current streak <tspan fill="{TEXT}" font-weight="700">{cs} days</tspan><tspan>   &#183;   longest </tspan><tspan fill="{TEXT}" font-weight="700">{ls} days</tspan></text>')

@@ -60,3 +60,10 @@ def test_render_is_valid_safe_monochrome_svg() -> None:
         assert forbidden_color not in svg
     assert "@keyframes cell" in svg
     assert "12 contributions" in svg
+
+def test_bootstrap_data_is_labeled_without_claiming_full_year_total() -> None:
+    data = sample_data()
+    data["bootstrap_note"] = "Recent public commit seed; run workflow for full data"
+    svg = render(data)
+    assert "Recent public commit seed; run workflow for full data" in svg
+    assert "contributions in the last year" not in svg
