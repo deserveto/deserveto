@@ -1,26 +1,26 @@
 {
   "username": "deserveto",
-  "generated_at": "2026-07-13T03:57:54Z",
+  "generated_at": "2026-07-14T03:31:15Z",
   "range": {
     "start": "2025-07-13",
-    "end": "2026-07-13"
+    "end": "2026-07-14"
   },
-  "total_contributions": 265,
+  "total_contributions": 204,
   "active_days": 23,
-  "avg_per_active_day": 11.5,
+  "avg_per_active_day": 8.9,
   "current_streak": {
-    "length": 0,
-    "start": null,
-    "end": null
+    "length": 2,
+    "start": "2026-07-13",
+    "end": "2026-07-14"
   },
   "longest_streak": {
-    "length": 5,
-    "start": "2026-07-07",
-    "end": "2026-07-11"
+    "length": 3,
+    "start": "2026-01-18",
+    "end": "2026-01-20"
   },
   "best_day": {
     "date": "2026-07-09",
-    "count": 104
+    "count": 91
   },
   "monthly": [
     {
@@ -73,7 +73,7 @@
     },
     {
       "month": "2026-07",
-      "total": 170
+      "total": 109
     }
   ],
   "days": [
@@ -1515,19 +1515,19 @@
     },
     {
       "date": "2026-07-07",
-      "count": 29
+      "count": 0
     },
     {
       "date": "2026-07-08",
-      "count": 18
+      "count": 11
     },
     {
       "date": "2026-07-09",
-      "count": 104
+      "count": 91
     },
     {
       "date": "2026-07-10",
-      "count": 14
+      "count": 0
     },
     {
       "date": "2026-07-11",
@@ -1539,7 +1539,11 @@
     },
     {
       "date": "2026-07-13",
-      "count": 0
+      "count": 1
+    },
+    {
+      "date": "2026-07-14",
+      "count": 1
     }
   ]
 }
