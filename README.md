@@ -39,12 +39,6 @@ I am an Information Technology student at Telkom University with a strong intere
 - **Security and networking:** Vulnerability assessment, phishing detection, Wireshark, Packet Tracer
 - **Tools:** Git, GitHub, Docker, VS Code
 
-## Contributions
-
-<div align="center">
-<img src="./contrib-heatmap.svg" width="860" alt="Animated GitHub contribution graph for deserveto" />
-</div>
-
 ## Contact
 
 - GitHub: [@deserveto](https://github.com/deserveto)
