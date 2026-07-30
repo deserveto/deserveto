@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.env
+.env.*
+source-photo.*
+source-prepped.*
+*.onnx
+.DS_Store
+Thumbs.db
+
+# Bad Apple local build inputs and intermediates
+*.mp4
+*.mkv
+*.webm
+assets/*.tmp.gif
+build/bad-apple/
